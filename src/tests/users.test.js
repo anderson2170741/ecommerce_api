@@ -30,7 +30,7 @@ describe("Pruebas para el login de un usuario", () => {
   test("Debe marcar error si no pasamos la contraseña", async () => {
     await api
       .post("/login")
-      .send({ email: "ian.rosas@academlo.com" })
+      .send({ email: "andersonduranpc@gmail.com" })
       .expect(400);
   });
   test("Debe marcar error si no pasamos el email", async () => {
@@ -45,31 +45,31 @@ describe("Pruebas para el login de un usuario", () => {
   test("Debe marcar error si la contraseña es incorrecta", async () => {
     await api
       .post("/login")
-      .send({ email: "ian.rosas@academlo.com", password: "Whatsclone" })
+      .send({ email: "andersonduranpc@gmail.com", password: "Whatsclone" })
       .expect(400);
   });
   test("Deberia responder un 200 si el usuario se pudo loggear", async () => {
     await api
       .post("/login")
-      .send({ email: "ian.rosas@academlo.com", password: "Whatsclone-123" })
+      .send({ email: "andersonduranpc@gmail.com", password: "Whatsclone-123" })
       .expect(200);
   });
   test("Deberia responder un objeto", async () => {
     const { body } = await api
       .post("/login")
-      .send({ email: "ian.rosas@academlo.com", password: "Whatsclone-123" });
+      .send({ email: "andersonduranpc@gmail.com", password: "Whatsclone-123" });
     expect(body).toBeInstanceOf(Object);
   });
   test("Deberia responder con formato json", async () => {
     await api
       .post("/login")
-      .send({ email: "ian.rosas@academlo.com", password: "Whatsclone-123" })
+      .send({ email: "andersonduranpc@gmail.com", password: "Whatsclone-123" })
       .expect("Content-Type", "application/json; charset=utf-8");
   });
   test("La respuesta debe contener un token", async () => {
     const { body } = await api
       .post("/login")
-      .send({ email: "ian.rosas@academlo.com", password: "Whatsclone-123" });
+      .send({ email: "andersonduranpc@gmail.com", password: "Whatsclone-123" });
     expect(body).toHaveProperty("token");
   });
 });
